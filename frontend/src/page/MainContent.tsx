@@ -1,11 +1,12 @@
-import React from "react";
+import { usePatientContext } from "../components/context/patientContext";
 
-const PATIENT = "John Doe";
 function MainContent() {
+  const { patient } = usePatientContext();
   return (
     <div className="px-10 mt-10">
       <p>
-        You are currently viewing for <span className="text-blue-600">{PATIENT}</span>{" "}
+        You are currently viewing for{" "}
+        <span className="text-blue-600">{patient.name}</span>
       </p>
     </div>
   );
