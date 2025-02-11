@@ -3,7 +3,7 @@ import { MainContent } from "./page/page";
 
 function App() {
   return (
-    <div className="bg-main-background min-h-dvh w-full text-zinc-950">
+    <div className="bg-main-background h-dvh w-full text-zinc-950 ">
       {/* Header */}
       <Header />
       <MainContent />
