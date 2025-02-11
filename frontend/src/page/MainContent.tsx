@@ -1,4 +1,4 @@
-import { usePatientContext } from "../components/context/patientContext";
+import { usePatientContext } from "../context/PatientContext";
 
 function MainContent() {
   const { patient } = usePatientContext();
