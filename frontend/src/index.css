@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@theme {
+  --color-main-background: oklch(0.984 0.003 247.858);
+}

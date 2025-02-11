@@ -1,0 +1,14 @@
+node_modules
+.DS_Store
+.idea/
+.vscode/
+.env
+frontend/.env
+backend/.env
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+dist
+dist-ssr
+*.local
+*.sw?
