@@ -1,14 +1,13 @@
-import { usePatientContext } from "../context/PatientContext";
-import ShortSummary from "../components/shortSummary/ShortSummary";
+import PatientInfo from "../components/patientInfo/PatientInfo";
 function MainContent() {
-  const { patient } = usePatientContext();
   return (
-    <div className="px-10 mt-10 h-full">
-      <p>
-        You are currently viewing for{" "}
-        <span className="text-blue-600">{patient.name}</span>
-      </p>
-      <ShortSummary />
+    <div className="px-10 mt-10 ">
+      <div className="max-h-1/3 overflow-auto">
+        {/* Left section */}
+        <PatientInfo />
+      </div>
+      {/* Right section */}
+      <div></div>
     </div>
   );
 }

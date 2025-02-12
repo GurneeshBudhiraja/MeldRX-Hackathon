@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
 * {
-  position: relative;
   box-sizing: border-box;
 }
 body {
   background-color: oklch(0.929 0.013 255.508);
-
+  
 }
 
 @theme {
