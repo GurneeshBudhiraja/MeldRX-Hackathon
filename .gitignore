@@ -1,3 +1,4 @@
+# client
 node_modules
 .DS_Store
 .idea/
@@ -12,3 +13,8 @@ dist
 dist-ssr
 *.local
 *.sw?
+
+# server
+temp/
+**/**/*.log
+config.js
