@@ -19,3 +19,7 @@ temp/
 **/**/*.log
 config.js
 build/
+
+
+# Note file
+notes.yaml

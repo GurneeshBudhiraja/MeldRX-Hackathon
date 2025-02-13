@@ -1,21 +1,30 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import aiRouter from "./routes/ai.route"
 import { PORT } from "./config/env"
+import cors from "cors"
+import cdsServiceRouter from "./routes/cds.router";
 
 
 const app = express()
 
+// CORS Middleware
+app.use(cors({
+  methods: ['get', 'post', 'put', 'delete'],
+  origin: "*",
+  credentials: true
+}));
+// JSON Middleware
 app.use(express.json())
+// Middleware for the form
 app.use(express.urlencoded({ extended: true }))
+// CookieParser form
 app.use(cookieParser())
 
-app.use("/api/v1/ai/", aiRouter)
+
+// cds-service router
+app.use("/cds-services", cdsServiceRouter)
 
 
-app.get("/", (req, res) => {
-  res.json({ msg: 'Hello world' })
-})
 
 
 app.listen(PORT, () => {
