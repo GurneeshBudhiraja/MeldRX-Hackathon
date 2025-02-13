@@ -9,6 +9,11 @@ const timeoutPromise = () => {
   })
 }
 
+export async function intro(req: Request, res: Response) {
+  res.status(200).json({message: "This is ai intro route"})
+}
+
+
 export async function getSummary(req: Request, res: Response,) {
   try {
     await timeoutPromise()

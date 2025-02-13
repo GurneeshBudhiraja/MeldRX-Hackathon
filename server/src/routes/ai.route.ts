@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { getSummary } from "../controllers/llm.controller.ts";
+import { intro, getSummary } from "../controllers/llm.controller";
 
 
 const router = Router()
 
-router.get("/", getSummary)
+router.get("/", intro)
+router.get("/summary", getSummary)
 
 
 export default router

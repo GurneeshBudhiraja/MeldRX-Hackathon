@@ -1,6 +1,8 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import aiRouter from "./src/routes/ai.route.ts"
+import aiRouter from "./routes/ai.route"
+import { PORT } from "./config/env"
+
 
 const app = express()
 
@@ -8,7 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
-app.use("/api/v1", aiRouter)
+app.use("/api/v1/ai/", aiRouter)
 
 
 app.get("/", (req, res) => {
@@ -16,6 +18,6 @@ app.get("/", (req, res) => {
 })
 
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000')
+app.listen(PORT, () => {
+  console.log(`Server is running on port http://localhost:${PORT}`)
 })
