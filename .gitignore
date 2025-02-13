@@ -18,3 +18,4 @@ dist-ssr
 temp/
 **/**/*.log
 config.js
+build/
