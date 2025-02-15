@@ -57,6 +57,15 @@ const DetailedAnalysis = () => {
       path: '/socket/connect',
     });
     setAppState((prev) => ({ ...prev, socketConnection: socket }));
+    socket.emit('timeoutStart', 'Timeout has started');
+    socket.on('index', (index) => {
+      const newSteps = [...steps];
+      newSteps[index].locked = false;
+      newSteps[index].loading = false;
+      newSteps[index].open = true;
+      if (index < steps.length - 1) newSteps[index + 1].loading = true;
+      setSteps(newSteps);
+    });
     return () => {
       socket.disconnect();
       setAppState((prev) => ({ ...prev, socketConnection: null }));

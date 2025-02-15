@@ -9,11 +9,17 @@ export async function socket(io: Server) {
         console.log("Server received message:", response);
       });
 
-      socket.on("sendMessage", (message) => {
-        console.log("Received message from client:", message);
-        // Send response back to client
-        socket.emit("message", "Hello from server");
-      });
+      socket.on("timeoutStart", (message) => {
+        let index = 0
+        console.log("message")
+        setInterval(() => {
+          if (index >= 4) {
+            return;
+          }
+          socket.emit("index", index)
+          index++
+        }, 3000)
+      })
 
       socket.on("disconnect", (reason) => {
         console.log("Socket disconnected:", reason)
