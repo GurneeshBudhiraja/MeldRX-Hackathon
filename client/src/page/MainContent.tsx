@@ -11,7 +11,7 @@ function MainContent() {
         'flex ': appState.scanner,
       })}
     >
-      <div
+      <div    
         className={cn('overflow-auto', {
           'w-1/2 ': appState.scanner,
         })}
