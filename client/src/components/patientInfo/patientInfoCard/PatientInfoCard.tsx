@@ -1,11 +1,11 @@
 // Shows the patient personal info
-import { UserCircleIcon } from "lucide-react";
-import { usePatientContext } from "../../../context/PatientContext";
+import { UserCircleIcon } from 'lucide-react';
+import { usePatientContext } from '../../../context/PatientContext';
 
 function PatientInfoCard() {
   const { patient } = usePatientContext();
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 col-span-1 ">
+    <div className="bg-white rounded-lg shadow-md p-6 col-span-1">
       <div className="flex items-center justify-between mb-4">
         <div>
           <h2 className="text-xl font-semibold text-gray-800">

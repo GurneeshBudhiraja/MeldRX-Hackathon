@@ -1,17 +1,19 @@
-import React from "react";
+import React from 'react';
 
 function Button({
   text,
+  children,
   className,
   onClick,
 }: {
-  text: string;
+  text?: string;
   className?: string;
+  children?: React.ReactNode;
   onClick?: () => any;
 }) {
   return (
     <button className={className} onClick={onClick}>
-      {text}
+      {!children ? text : children}
     </button>
   );
 }

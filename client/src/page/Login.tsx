@@ -1,6 +1,6 @@
 import { UserManager } from 'oidc-client-ts';
 import { CLIENT_ID, FRONTEND_URL } from '../config/env';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 function Login() {
   useEffect(() => {
