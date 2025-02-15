@@ -24,7 +24,7 @@ export default function AppStateContextWrapper({
   children: React.ReactNode;
 }) {
   const [appState, setAppState] = useState<AppStateType>({
-    scanner: true,
+    scanner: false,
   });
   return (
     <AppStateContext.Provider value={{ appState, setAppState }}>

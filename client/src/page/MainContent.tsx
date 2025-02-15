@@ -1,5 +1,5 @@
 import PatientInfo from '../components/patientInfo/PatientInfo';
-import Scanner from '../components/scanner/Scanner';
+import Scanner from '../components/detailedAnalysis/DetailedAnalysis';
 import { useAppStateContext } from '../context/AppStateContext';
 
 import { cn } from '../utils/cn';
