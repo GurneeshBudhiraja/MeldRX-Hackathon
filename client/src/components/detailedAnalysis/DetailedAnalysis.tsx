@@ -6,6 +6,8 @@ import { useAppStateContext } from '../../context/AppStateContext';
 import { cn } from '../../utils/cn';
 import DetailedAnalysisIconComponent from './DetailedAnalysisIconComponent';
 import DetailedAnalysisCollapsible from './DetailedAnalysisCollapsible';
+import { BACKEND_URL } from '../../config/env';
+import { io } from 'socket.io-client';
 
 interface Step {
   title: string;
@@ -49,15 +51,17 @@ const DetailedAnalysis = () => {
     },
   ];
   const [steps, setSteps] = useState<Array<Step>>(stepsArray);
-
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      const newSteps = [...steps];
-      newSteps[0].locked = false;
-      newSteps[0].loading = false;
-      setSteps(newSteps);
-    }, 3000);
-  });
+    const socket = io(`${BACKEND_URL}`, {
+      transports: ['websocket'],
+      path: '/socket/connect',
+    });
+    setAppState((prev) => ({ ...prev, socketConnection: socket }));
+    return () => {
+      socket.disconnect();
+      setAppState((prev) => ({ ...prev, socketConnection: null }));
+    };
+  }, []);
 
   return (
     <motion.div

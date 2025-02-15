@@ -9,7 +9,7 @@ import Login from './page/Login.tsx';
 import Callback from './page/Callback.tsx';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <>
     <AppStateContextWrapper>
       <PatientContextWrapper>
         <BrowserRouter>
@@ -21,5 +21,5 @@ createRoot(document.getElementById('root')!).render(
         </BrowserRouter>
       </PatientContextWrapper>
     </AppStateContextWrapper>
-  </StrictMode>
+  </>
 );

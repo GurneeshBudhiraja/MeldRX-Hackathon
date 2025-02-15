@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
-
+import { Socket } from 'socket.io-client';
 // The Patient type
 export type AppStateType = {
   scanner: boolean;
+  socketConnection?: Socket | null;
 };
 
 // The PatientContext type
@@ -14,6 +15,7 @@ export type AppStateContextType = {
 const AppStateContext = React.createContext<AppStateContextType>({
   appState: {
     scanner: false,
+    socketConnection: null,
   },
   setAppState: () => {},
 });
@@ -25,6 +27,7 @@ export default function AppStateContextWrapper({
 }) {
   const [appState, setAppState] = useState<AppStateType>({
     scanner: false,
+    socketConnection: null,
   });
   return (
     <AppStateContext.Provider value={{ appState, setAppState }}>

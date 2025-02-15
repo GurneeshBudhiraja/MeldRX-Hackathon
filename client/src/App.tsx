@@ -4,6 +4,7 @@ import { MainContent } from './page/page';
 import { UserManager } from 'oidc-client-ts';
 import { CLIENT_ID, FRONTEND_URL } from './config/env';
 import axios from 'axios';
+import { useAppStateContext } from './context/AppStateContext';
 
 const userManager = new UserManager({
   authority: 'https://app.meldrx.com',
@@ -26,12 +27,27 @@ async function getCurrentPatient() {
 }
 
 function App() {
+  const { appState } = useAppStateContext();
   useEffect(() => {
     getCurrentPatient();
   }, []);
   return (
     <div className="bg-main-background h-dvh w-full text-zinc-950 ">
       {/* Header */}
+      <button
+        onClick={() => {
+          const { socketConnection } = appState;
+          if (!socketConnection) {
+            console.log(socketConnection);
+            return;
+          }
+          console.log('Sending the signal to the backend');
+          socketConnection.emit('sendMessage', 'This is good');
+          socketConnection.on('message', (message) => console.log(message));
+        }}
+      >
+        Get message from WS
+      </button>
       <Header />
       <MainContent />
     </div>
