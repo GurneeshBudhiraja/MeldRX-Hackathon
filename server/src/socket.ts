@@ -5,13 +5,8 @@ export async function socket(io: Server) {
     io.on("connection", (socket) => {
       console.log("Socket connected:", socket.id)
 
-      socket.on("message", (response) => {
-        console.log("Server received message:", response);
-      });
-
       socket.on("timeoutStart", (message) => {
         let index = 0
-        console.log("message")
         setInterval(() => {
           if (index >= 4) {
             return;

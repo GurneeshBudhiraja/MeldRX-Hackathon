@@ -99,15 +99,17 @@ const DetailedAnalysis = () => {
         </div>
 
         <div className="flex flex-col h-full">
-          <div className="space-y-2">
+          <div className="space-y-7">
             {steps.map((step: Step, index: number) => (
               <div key={index}>
                 <Button
                   className={cn(
-                    'w-full text-left px-4 py-4 rounded-md flex gap-2 text-white ',
+                    'w-full text-left px-4 py-4 flex gap-2 text-white ',
                     {
                       'bg-blue-500': !step.locked,
-                      'bg-blue-300': step.locked,
+                      'bg-blue-300 ': step.locked,
+                      'rounded-md': !step.open,
+                      'rounded-t-md': step.open,
                     }
                   )}
                   onClick={() => {

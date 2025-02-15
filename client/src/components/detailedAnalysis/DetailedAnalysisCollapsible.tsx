@@ -14,6 +14,7 @@ function DetailedAnalysisCollapsible({
       animate={{ height: open ? 'auto' : 0 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       style={{ overflow: 'hidden' }}
+      className='bg-blue-100 rounded-b-lg'
     >
       <motion.div
         initial={{ opacity: 0 }}
